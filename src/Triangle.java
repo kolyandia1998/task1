@@ -49,18 +49,9 @@ public class Triangle {
     public static void main(String[] args) throws Exception{
 
        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-       Integer a ;
+       Integer a= null;
        System.out.println("enter a");
-       try
-       {
-            a = Integer.parseInt(bufferedReader.readLine());
-       }
-       catch (NumberFormatException e)
-       {
-           a = null;
-
-           while (!PositivValidate(a))
-
+       while (!PositivValidate(a))
                {
                      try
                      {
@@ -73,20 +64,10 @@ public class Triangle {
                      {}
                      a = tryParse(bufferedReader.readLine());
                }
-       }
-
-        Integer b ;
+        Integer b = null;
         System.out.println("enter b");
-        try
-        {
-            b = Integer.parseInt(bufferedReader.readLine());
-        }
-        catch (NumberFormatException e)
-        {
-            b = null;
 
-            while (!PositivValidate(b))
-
+        while (!PositivValidate(b))
             {
                 try
                 {
@@ -99,15 +80,7 @@ public class Triangle {
                 {}
                 b = tryParse(bufferedReader.readLine());
             }
-        }
-
-
-
-
-
-
        Triangle triangle = new Triangle(a,b);
-
        System.out.println("Square value is:"+triangle.getSquare());
 
 
