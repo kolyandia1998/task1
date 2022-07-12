@@ -47,7 +47,9 @@ public class Triangle {
     }
 
 
-    public static void main(String[] args) throws Exception{Triangle triangle = new Triangle();
+    public static void main(String[] args) throws Exception{
+
+        Triangle triangle = new Triangle();
        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
        Integer a = null;
        System.out.println("enter a");
