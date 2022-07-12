@@ -9,16 +9,18 @@ public class Triangle {
     public void setA (Integer a) {
         this.a = PositiveValidate(a);
     }
+
+    public Integer getA() {
+        return a;
+    }
+    public Integer getB() {
+        return b;
+    }
     public void setB (Integer b) {
         this.b = PositiveValidate(b);
     }
 
-   /* private int validateNumberOfStudents(int numberOfStudents) {
-        if(numberOfStudents <= 0) {
-            throw new IllegalArgumentException("Number of student's on a lesson can't be negative!");
-        }
-        return numberOfStudents;
-    }*/
+
     public static Integer tryParse(String s) throws Exception{
         try
         {
