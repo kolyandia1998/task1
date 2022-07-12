@@ -6,11 +6,19 @@ public class Triangle {
     private int a;
     private int b;
 
-    public Triangle(int a, int b) {
-        this.a = a;
-        this.b = b;
+    public void setA (Integer a) {
+        this.a = PositiveValidate(a);
+    }
+    public void setB (Integer b) {
+        this.b = PositiveValidate(b);
     }
 
+   /* private int validateNumberOfStudents(int numberOfStudents) {
+        if(numberOfStudents <= 0) {
+            throw new IllegalArgumentException("Number of student's on a lesson can't be negative!");
+        }
+        return numberOfStudents;
+    }*/
     public static Integer tryParse(String s) throws Exception{
         try
         {
@@ -23,64 +31,40 @@ public class Triangle {
         }
     }
 
-    public static boolean PositivValidate(Integer a) {
+    private static Integer PositiveValidate(Integer a) {
 
-                try {
-
-                    if (a <= 0 )  {
-
-                        return false;
-                    }
-                    return true;
-                }
-                catch (NullPointerException e)
-
-                {
-                    return false;
-                }
+        if  (a == null ||  a <= 0  )
+        {throw new IllegalArgumentException("value can't be negative!");}
+        else
+            return a;
     }
-    public  Integer getSquare ()
+    public  float getSquare ()
     {
-        return (a*b)/2;
+        return (float) (a*b)/2;
 
     }
 
 
-    public static void main(String[] args) throws Exception{
-
+    public static void main(String[] args) throws Exception{Triangle triangle = new Triangle();
        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-       Integer a= null;
+       Integer a = null;
        System.out.println("enter a");
-       while (!PositivValidate(a))
-               {
-                     try
-                     {
-                         if (a <= 0)
-                             {
-                                 System.out.println("Error: only positive Integer value");
-                             }
-                     }
-                     catch (NullPointerException q)
-                     {}
-                     a = tryParse(bufferedReader.readLine());
-               }
+       while (a==null)
+       {
+           a = tryParse(bufferedReader.readLine());
+       }
+       triangle.setA(a);
+
+
         Integer b = null;
         System.out.println("enter b");
+        while (b==null)
+        {
+            b = tryParse(bufferedReader.readLine());
+        }
+        triangle.setB(b);
 
-        while (!PositivValidate(b))
-            {
-                try
-                {
-                    if (b <= 0)
-                    {
-                        System.out.println("Error: only positive Integer value");
-                    }
-                }
-                catch (NullPointerException q)
-                {}
-                b = tryParse(bufferedReader.readLine());
-            }
-       Triangle triangle = new Triangle(a,b);
+
        System.out.println("Square value is:"+triangle.getSquare());
 
 
